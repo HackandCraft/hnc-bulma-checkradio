@@ -1,5 +1,5 @@
 @use "sass:math"
-@import "node_modules/bulma/sass/utilities/_all.sass"
+@import "node_modules/bulma/sass/utilities/_index.scss"
 
 $checkbox-radius: $radius !default
 $checkbox-border: .1rem solid $grey-lighter !default
@@ -7,6 +7,14 @@ $checkbox-block-background: $white-ter !default
 $checkbox-checked-width: .1rem !default
 $checkradio-focus: 1px dotted $grey-light !default
 $checkradio-top-offset: 0rem !default
+$checkradio-hover-background: $primary !default
+$checkradio-checked-color: $primary !default
+$checkradio-label-color: $text !default
+$checkradio-size-normal: $size-normal !default
+$checkradio-size-small: $size-small !default
+$checkradio-size-medium: $size-medium !default
+$checkradio-size-large: $size-large !default
+$checkradio-colors: $colors !default
 
 =checkbox-size($size)
 	$newSize: $size * 1.5
@@ -129,7 +137,7 @@ $checkradio-top-offset: 0rem !default
 		+ label
 			&::before,
 			&:before
-				border-color: $primary !important
+				border-color: $checkradio-hover-background !important
 
 	&:checked
 		+ label
@@ -191,8 +199,7 @@ $checkradio-top-offset: 0rem !default
 			+ label
 				background: darken($checkbox-block-background, 5%)
 
-.is-checkradio[type="checkbox"]
-+ label
+.is-checkradio[type="checkbox"] + label
 	&::before,
 	&:before
 		border-radius: $checkbox-radius
@@ -203,7 +210,7 @@ $checkradio-top-offset: 0rem !default
 			transform: translateY($checkradio-top-offset) rotate(45deg)
 			border-width: $checkbox-checked-width
 			border-style: solid
-			border-color: $primary
+			border-color: $checkradio-checked-color
 			border-top: 0
 			border-left: 0
 
@@ -213,17 +220,17 @@ $checkradio-top-offset: 0rem !default
 			&:before
 				border-radius: 50%
 
-	+checkbox-size($size-normal)
+	+checkbox-size($checkradio-size-normal)
 	&.is-small
-		+checkbox-size($size-small)
+		+checkbox-size($checkradio-size-small)
 	&.is-medium
-		+checkbox-size($size-medium)
+		+checkbox-size($checkradio-size-medium)
 	&.is-large
-		+checkbox-size($size-large)
+		+checkbox-size($checkradio-size-large)
 
-	@each $name, $pair in $colors
+	@each $name, $pair in $checkradio-colors
 		$color: nth($pair, 1)
-		$color-invert: nth($pair, 2)
+		$color-invert: if(length($pair)==1,nth($pair, 1),nth($pair, 2))
 		&.is-#{$name}
 			&.has-background-color
 				+ label
@@ -283,24 +290,23 @@ $checkradio-top-offset: 0rem !default
 				display: inline-block
 				transform: rotate(90deg)
 				border-bottom: none
-		@each $name, $pair in $colors
+		@each $name, $pair in $checkradio-colors
 			$color: nth($pair, 1)
-			$color-invert: nth($pair, 2)
+			$color-invert: if(length($pair)==1,nth($pair, 1),nth($pair, 2))
 			&.is-#{$name}
 				+ label
 					&::after,
 					&:after
 						border-color: $color
 
-.is-checkradio[type="radio"]
-+ label
+.is-checkradio[type="radio"] + label
 	&::before,
 	&:before
 		border-radius: 50%
 		&::after,
 		&:after
 			border-radius: 50%
-			background: $primary
+			background: $checkradio-checked-color
 			left: 0
 			transform: scale(0.5)
 
@@ -309,12 +315,12 @@ $checkradio-top-offset: 0rem !default
 			+ label
 				&::before,
 				&:before
-					border-color: $text !important
-					background-color: $text !important
+					border-color: $checkradio-label-color !important
+					background-color: $checkradio-label-color !important
 				&::after,
 				&:after
-					border-color: $text !important
-					background-color: $text !important
+					border-color: $checkradio-label-color !important
+					background-color: $checkradio-label-color !important
 
 	&.is-rtl
 		+ label
@@ -324,17 +330,17 @@ $checkradio-top-offset: 0rem !default
 				left: auto
 				right: 0
 
-	+radio-size($size-normal)
+	+radio-size($checkradio-size-normal)
 	&.is-small
-		+radio-size($size-small)
+		+radio-size($checkradio-size-small)
 	&.is-medium
-		+radio-size($size-medium)
+		+radio-size($checkradio-size-medium)
 	&.is-large
-		+radio-size($size-large)
+		+radio-size($checkradio-size-large)
 
-	@each $name, $pair in $colors
+	@each $name, $pair in $checkradio-colors
 		$color: nth($pair, 1)
-		$color-invert: nth($pair, 2)
+		$color-invert: if(length($pair)==1,nth($pair, 1),nth($pair, 2))
 		&.is-#{$name}
 			&.has-background-color
 				+ label

@@ -68,6 +68,6 @@
     "README.md"
   ],
   "dependencies": {
-    "bulma": "^0.9.3"
+    "bulma": "^1.0.2"
   }
 }
