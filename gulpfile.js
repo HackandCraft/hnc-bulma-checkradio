@@ -77,17 +77,6 @@ gulp.task('build:styles', function() {
 	}
 });
 
-// Copy original sass file to dist
-gulp.task('build:styles:copy', function() {
-	if (fs.existsSync(config.sass.source + config.sass.input)) {
-		return gulp.src(config.sass.source + config.sass.input)
-			.pipe(concat(config.sass.output.filename + '.sass'))
-			.pipe(gulp.dest(config.sass.destination));
-	} else {
-		return gulp.src('.').pipe(nop());
-	}
-});
-
 gulp.task('clean:styles', function() {
 	return del([
 		config.sass.destination + config.sass.output.filename + '.sass',
@@ -166,7 +155,7 @@ gulp.task('clean', function() {
  *  GLOBAL BUILD
  * ----------------------------------------
  */
-gulp.task('build', gulp.series('clean', 'build:styles', 'build:styles:copy', 'build:scripts', function(callback) {
+gulp.task('build', gulp.series('clean', 'build:styles', 'build:scripts', function(callback) {
 	callback();
 }));
 
