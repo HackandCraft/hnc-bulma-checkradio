@@ -1,5 +1,5 @@
 {
-  "name": "bulma-checkradio",
+  "name": "hnc-bulma-checkradio",
   "description": "Make classic checkbox and radio more sexy in different colors, sizes, and states",
   "main": "checkradio.sass",
   "version": "1.0.2",
@@ -13,7 +13,7 @@
     "extensions",
     "bulma.io"
   ],
-  "homepage": "https://github.com/Wikiki/bulma-checkradio",
+  "homepage": "https://github.com/HackandCraft/hnc-bulma-checkradio",
   "ignore": [
     "**/.*",
     "node_modules",

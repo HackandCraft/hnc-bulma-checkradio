@@ -1,9 +1,9 @@
 {
-  "name": "bulma-checkradio",
+  "name": "hnc-bulma-checkradio",
   "version": "3.0.0",
   "description": "Make classic checkbox and radio more sexy in different colors, sizes, and states ",
-  "main": "./dist/css/bulma-checkradio.sass",
-  "style": "./dist/css/bulma-checkradio.min.css",
+  "main": "./dist/css/hnc-bulma-checkradio.sass",
+  "style": "./dist/css/hnc-bulma-checkradio.min.css",
   "scripts": {
     "build": "gulp",
     "commit": "git-cz",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wikiki/bulma-checkradio.git"
+    "url": "git+https://github.com/HackandCraft/bulma-checkradio.git"
   },
   "keywords": [
     "Bulma",
@@ -23,9 +23,9 @@
   "author": "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io/bulma-extensions/overview)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Wikiki/bulma-checkradio/issues"
+    "url": "https://github.com/HackandCraft/hnc-bulma-checkradio/issues"
   },
-  "homepage": "https://github.com/Wikiki/bulma-checkradio#readme",
+  "homepage": "https://github.com/HackandCraft/hnc-bulma-checkradio#readme",
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/plugin-proposal-object-rest-spread": "^7.16.7",
