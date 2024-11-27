@@ -1,20 +1,22 @@
 @use "sass:math"
-@import "node_modules/bulma/sass/utilities/_index.scss"
+@use "sass:color"
+@use "sass:list"
+@use "node_modules/bulma/sass/utilities" as utilities
 
-$checkbox-radius: $radius !default
-$checkbox-border: .1rem solid $grey-lighter !default
-$checkbox-block-background: $white-ter !default
+$checkbox-radius: utilities.$radius !default
+$checkbox-border: .1rem solid utilities.$grey-lighter !default
+$checkbox-block-background: utilities.$white-ter !default
 $checkbox-checked-width: .1rem !default
-$checkradio-focus: 1px dotted $grey-light !default
+$checkradio-focus: 1px dotted utilities.$grey-light !default
 $checkradio-top-offset: 0rem !default
-$checkradio-hover-background: $primary !default
-$checkradio-checked-color: $primary !default
-$checkradio-label-color: $text !default
-$checkradio-size-normal: $size-normal !default
-$checkradio-size-small: $size-small !default
-$checkradio-size-medium: $size-medium !default
-$checkradio-size-large: $size-large !default
-$checkradio-colors: $colors !default
+$checkradio-hover-background: utilities.$primary !default
+$checkradio-checked-color: utilities.$primary !default
+$checkradio-label-color: utilities.$text !default
+$checkradio-size-normal: utilities.$size-normal !default
+$checkradio-size-small: utilities.$size-small !default
+$checkradio-size-medium: utilities.$size-medium !default
+$checkradio-size-large: utilities.$size-large !default
+$checkradio-colors: utilities.$colors !default
 
 =checkbox-size($size)
 	$newSize: $size * 1.5
@@ -197,7 +199,7 @@ $checkradio-colors: $colors !default
 			padding-right: .75em
 		&:hover:not([disabled])
 			+ label
-				background: darken($checkbox-block-background, 5%)
+				background: color.adjust($checkbox-block-background, $lightness: -5%)
 
 .is-checkradio[type="checkbox"] + label
 	&::before,
@@ -229,8 +231,8 @@ $checkradio-colors: $colors !default
 		+checkbox-size($checkradio-size-large)
 
 	@each $name, $pair in $checkradio-colors
-		$color: nth($pair, 1)
-		$color-invert: if(length($pair)==1,nth($pair, 1),nth($pair, 2))
+		$color: list.nth($pair, 1)
+		$color-invert: if(list.length($pair)==1,list.nth($pair, 1),list.nth($pair, 2))
 		&.is-#{$name}
 			&.has-background-color
 				+ label
@@ -276,12 +278,12 @@ $checkradio-colors: $colors !default
 							border-color: $color-invert !important
 					&:hover:not([disabled])
 						+ label
-							background: darken($color, 5%)
+							background: color.adjust($color, $lightness: -5%)
 							&::after,
 							&:after,
 							&::before,
 							&:before
-								border-color: darken($color-invert, 5%) !important
+								border-color: color.adjust($color-invert, $lightness: -5%) !important
 
 	&:indeterminate
 		+ label
@@ -291,8 +293,8 @@ $checkradio-colors: $colors !default
 				transform: rotate(90deg)
 				border-bottom: none
 		@each $name, $pair in $checkradio-colors
-			$color: nth($pair, 1)
-			$color-invert: if(length($pair)==1,nth($pair, 1),nth($pair, 2))
+			$color: list.nth($pair, 1)
+			$color-invert: if(list.length($pair)==1,list.nth($pair, 1),list.nth($pair, 2))
 			&.is-#{$name}
 				+ label
 					&::after,
@@ -339,8 +341,8 @@ $checkradio-colors: $colors !default
 		+radio-size($checkradio-size-large)
 
 	@each $name, $pair in $checkradio-colors
-		$color: nth($pair, 1)
-		$color-invert: if(length($pair)==1,nth($pair, 1),nth($pair, 2))
+		$color: list.nth($pair, 1)
+		$color-invert: if(list.length($pair)==1,list.nth($pair, 1),list.nth($pair, 2))
 		&.is-#{$name}
 			&.has-background-color
 				+ label
